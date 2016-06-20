@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  #my-trello
+    header
+      select.boards
+        option(value="1") Board 1
+        option(value="2") Board 2
+      h1 My Trello
+    main
+      h2 Board 1
+      .list
+        h3 List 1
+        .card
+          h4 Card 1
+        .card
+          h4 Card 2
+      .list
+        h3 List 2
+        .card
+          h4 Card 3

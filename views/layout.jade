@@ -1,0 +1,18 @@
+include ./_mixins
+
+doctype html
+html
+  head
+    title= title
+    +stylesheet_link_tag('application')
+    +javascript_include_tag('vendor/all')
+    +javascript_include_tag('handlebars_templates')
+  body
+    block content
+
+    +javascript_include_tag('application')
+    +javascript_include_tag('models/board', 'models/list', 'models/card')
+    +javascript_include_tag('collections/boards', 'collections/lists', 'collectiom/cards')
+    +javascript_include_tag('views/application')
+    script(type='text/javascript').
+      new App.ApplicationView;
