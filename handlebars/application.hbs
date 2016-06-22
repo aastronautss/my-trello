@@ -1,7 +1,11 @@
 <header>
   <select class="boards">
-
+    {{#each boards}}
+      <option value="{{id}}">{{title}}</option>
+    {{/each}}
   </select>
+
+  <div class="app-name"><h1>My Trello</h1></div>
 </header>
 
 <main>

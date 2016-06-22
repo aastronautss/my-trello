@@ -164,7 +164,11 @@ h2 {
   color: rgba(255,255,255,0.9);
   padding: 0 0 15px 0;
 }
-.list {
+#lists {
+  display: inline-block;
+}
+.list,
+.new-list form {
   background: #e2e4e6;
   width: 270px;
   border-radius: 3px;
@@ -173,10 +177,12 @@ h2 {
   display: inline-block;
   box-sizing: border-box;
 }
-.list + .list {
+.list + .list,
+.new-list form + .list {
   margin-left: 10px;
 }
-.list > textarea {
+.list > textarea,
+.new-list form > textarea {
   background: inherit;
   height: 18px;
   width: 100%;
@@ -187,8 +193,35 @@ h2 {
   color: #4d4d4d;
   font-weight: bold;
 }
-.list > textarea:focus {
+.list > textarea:focus,
+.new-list form > textarea:focus {
   background: #fff;
+}
+.new-list {
+  background: rgba(0,0,0,0.12);
+  margin-left: 10px;
+  position: relative;
+  display: inline-block;
+  color: rgba(255,255,255,0.7);
+}
+.new-list:hover {
+  background: rgba(0,0,0,0.3);
+}
+.new-list form {
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+.new-list form [type="text"] {
+  width: 100%;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+.idle {
+  cursor: pointer;
+}
+.idle form {
+  display: none;
 }
 .card {
   background: #fff;

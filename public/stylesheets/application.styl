@@ -88,7 +88,11 @@ h2
   color: colors.board.title
   padding: 0 0 15px 0
 
-.list
+#lists
+  display: inline-block
+
+.list,
+.new-list form
   background: colors.list.bg
   width: 270px
   border-radius: 3px
@@ -110,6 +114,28 @@ h2
     font-weight: bold
     &:focus
       background: colors.list.title-edit-bg
+
+.new-list
+  background: colors.list.new-bg
+  margin-left: 10px
+  position: relative
+  display: inline-block
+  color: colors.list.new-bg-text
+  &:hover
+    background: colors.list.new-bg-hover
+  form
+    top: 0
+    left: 0
+    position: absolute
+    [type="text"]
+      width: 100%
+      margin-bottom: 10px
+      box-sizing: border-box
+
+.idle
+  cursor: pointer
+  form
+    display: none
 
 .card
   background: colors.card.bg
