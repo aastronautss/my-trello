@@ -24,6 +24,16 @@ this["JST"]["board"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":fun
     + "</h2><ul id=\"lists\"></ul><div class=\"list new-list idle\">Add a list...<form for=\"\" action=\"post\" id=\"new-list-form\"><input type=\"text\" name=\"title\" value=\"New List\"><div><input type=\"submit\" value=\"Add\"><a href=\"#\" class=\"cancel-new-list\">Cancel</a></div></form></div>";
 },"useData":true});
 
+this["JST"]["card_modal"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "<div class=\"overlay\"></div><div class=\"card-modal\"><h2>"
+    + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
+    + "</h2><section><h3>Description</h3><p>"
+    + alias4(((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"description","hash":{},"data":data}) : helper)))
+    + "<p></section><section class=\"comments\"><h2>Comments</h2></section></div>";
+},"useData":true});
+
 this["JST"]["card"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var helper;
 

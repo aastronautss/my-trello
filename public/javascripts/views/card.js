@@ -8,6 +8,8 @@ App.CardView = Backbone.View.extend({
 
   showModal: function(e) {
     e.preventDefault();
+    var modal_view = new App.CardModalView({ model: this.model });
+    modal_view.$el.appendTo('#my-trello');
   },
 
   render: function() {

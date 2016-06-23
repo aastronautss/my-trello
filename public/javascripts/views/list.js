@@ -27,6 +27,7 @@ App.ListView = Backbone.View.extend({
     var boardLists = board.get('lists');
 
     board.save({ lists: _(boardLists).without(this.model.id) });
+    this.clearCards();
     this.model.destroy();
   },
 
@@ -43,6 +44,15 @@ App.ListView = Backbone.View.extend({
     }
 
     this.hideNewCardForm();
+  },
+
+  clearCards: function() {
+    var cardIDs = this.model.get('cards');
+    _(cardIDs).each(function(id) {
+      var card = App.data.cards.get(id);
+      card.trigger('clear');
+      card.destroy();
+    });
   },
 
   showNewCardForm: function(e) {

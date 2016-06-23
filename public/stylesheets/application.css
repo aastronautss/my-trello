@@ -312,14 +312,26 @@ h2 {
   z-index: 2;
   position: fixed;
 }
+.modal .card-modal,
 .modal form {
-  background: #bbb;
-  box-sizing: border-box;
-  width: 300px;
+  background: #ddd;
+  position: relative;
   margin: 0 auto;
   padding: 15px;
+  border-radius: 3px;
+  box-sizing: border-box;
   z-index: 3;
-  position: relative;
+}
+.modal .card-modal {
+  width: 600px;
+  color: #666;
+  text-align: left;
+}
+.modal .card-modal h2 {
+  color: #4d4d4d;
+}
+.modal form {
+  width: 300px;
   text-align: center;
 }
 .modal form h5 {
