@@ -128,24 +128,35 @@ table {
 /* ====-----------------====
    Main CSS
    ====-----------------==== */
-#my-trello {
+html,
+body {
+  height: 100%;
   background: #0079bf;
+}
+#my-trello {
   font: normal 16px Helvetica, Arial, sans-serif;
-  position: absolute;
   top: 0;
   bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -1;
+  height: 100%;
 }
 header {
   background: rgba(0,0,0,0.149);
+  width: 100%;
   height: 50px;
   padding: 10px;
+  position: fixed;
   box-sizing: border-box;
+  z-index: 1;
 }
 .boards {
   float: left;
+  width: 170px;
+  height: 30px;
+  font: inherit;
+  color: inherit;
+}
+.new-board {
+  float: right;
   width: 100px;
 }
 h1 {
@@ -156,7 +167,16 @@ h1 {
   font-size: 1.6em;
 }
 main {
-  padding: 15px 10px;
+  position: absolute;
+  height: 100%;
+  padding: 65px 10px 15px 10px;
+  box-sizing: border-box;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }
 h2 {
   font-weight: bold;
@@ -184,10 +204,10 @@ h2 {
 .list > textarea,
 .new-list form > textarea {
   background: inherit;
-  height: 18px;
-  width: 100%;
+  width: calc(100% - 15px);
   border: none;
   border-radius: 3px;
+  box-sizing: border-box;
   resize: none;
   font: inherit;
   color: #4d4d4d;
@@ -196,6 +216,42 @@ h2 {
 .list > textarea:focus,
 .new-list form > textarea:focus {
   background: #fff;
+}
+.list > .delete,
+.new-list form > .delete {
+  display: inline-block;
+  width: 10px;
+  overflow: hidden;
+  vertical-align: middle;
+  float: right;
+  box-sizing: border-box;
+}
+.list .new-card,
+.new-list form .new-card {
+  color: inherit;
+  cursor: pointer;
+}
+.list .new-card-form,
+.new-list form .new-card-form {
+  display: none;
+}
+.list .new-card-form form [type=text],
+.new-list form .new-card-form form [type=text] {
+  display: block;
+  width: 100%;
+  margin: 0 0 5px 0;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.list .new-card-form form [type=submit],
+.new-list form .new-card-form form [type=submit],
+.list .new-card-form form a,
+.new-list form .new-card-form form a {
+  display: inline-block;
+}
+.list .new-card-form form a,
+.new-list form .new-card-form form a {
+  margin-left: 5px;
 }
 .new-list {
   background: rgba(0,0,0,0.12);
@@ -223,6 +279,9 @@ h2 {
 .idle form {
   display: none;
 }
+.cards {
+  margin-bottom: 10px;
+}
 .card {
   background: #fff;
   border-radius: 3px;
@@ -233,5 +292,51 @@ h2 {
 }
 .card h3 {
   color: #333;
+  font-weight: bold;
   font-size: 0.9em;
+  cursor: pointer;
+}
+.modal {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.modal .overlay {
+  background: rgba(0,0,0,0.4);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  position: fixed;
+}
+.modal form {
+  background: #bbb;
+  box-sizing: border-box;
+  width: 300px;
+  margin: 0 auto;
+  padding: 15px;
+  z-index: 3;
+  position: relative;
+  text-align: center;
+}
+.modal form h5 {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+.modal form input {
+  display: block;
+}
+.modal form input[type=text] {
+  width: 100%;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  font-size: 1.1em;
+}
+.modal form input[type=submit] {
+  margin: 10px auto 0 auto;
+  padding: 5px 10px;
 }

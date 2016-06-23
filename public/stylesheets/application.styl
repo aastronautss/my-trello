@@ -52,24 +52,35 @@ table
    Main CSS
    ====-----------------==== */
 
-#my-trello
+html,
+body
+  height: 100%
   background: colors.bg
+
+#my-trello
   font: normal 16px Helvetica, Arial, sans-serif
-  position: absolute
   top: 0
   bottom: 0
-  left: 0
-  right: 0
-  z-index: -1
+  height: 100%
 
 header
   background: colors.header
+  width: 100%
   height: 50px
   padding: 10px
+  position: fixed
   box-sizing: border-box
+  z-index: 1
 
 .boards
   float: left
+  width: 170px
+  height: 30px
+  font: inherit
+  color: inherit
+
+.new-board
+  float: right
   width: 100px
 
 h1
@@ -80,7 +91,16 @@ h1
   font-size: 1.6em
 
 main
-  padding: 15px 10px
+  position: absolute
+  height: 100%
+  padding: 65px 10px 15px 10px
+  box-sizing: border-box
+  overflow-y: hidden
+  white-space: nowrap
+
+a
+  text-decoration: none
+  color: inherit
 
 h2
   font-weight: bold
@@ -104,16 +124,40 @@ h2
     margin-left: 10px
   & > textarea
     background: inherit
-    height: 18px
-    width: 100%
+    width: calc(100% - 15px)
     border: none
     border-radius: 3px
+    box-sizing: border-box
     resize: none
     font: inherit
     color: colors.list.title
     font-weight: bold
     &:focus
       background: colors.list.title-edit-bg
+  & > .delete
+    display: inline-block
+    width: 10px
+    overflow: hidden
+    vertical-align: middle
+    float: right
+    box-sizing: border-box
+  .new-card
+    color: inherit
+    cursor: pointer
+  .new-card-form
+    display: none
+    form
+      [type=text]
+        display: block
+        width: 100%
+        margin: 0 0 5px 0
+        padding: 5px
+        box-sizing: border-box
+      [type=submit],
+      a
+        display: inline-block
+      a
+        margin-left: 5px
 
 .new-list
   background: colors.list.new-bg
@@ -137,6 +181,9 @@ h2
   form
     display: none
 
+.cards
+  margin-bottom: 10px
+
 .card
   background: colors.card.bg
   border-radius: 3px
@@ -145,4 +192,44 @@ h2
     margin-top: 5px
   h3
     color: colors.card.title
+    font-weight: bold
     font-size: .9em
+    cursor: pointer
+
+.modal
+  position: absolute
+  top: 20%
+  left: 0
+  right: 0
+  text-align: center
+  .overlay
+    background: rgba(0, 0, 0, .4)
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 2
+    position: fixed
+  form
+    background: #bbb
+    box-sizing: border-box
+    width: 300px
+    margin: 0 auto
+    padding: 15px
+    z-index: 3
+    position: relative
+    text-align: center
+    h5
+      font-weight: bold
+      font-size: 1.2em
+      margin-bottom: 10px
+    input
+      display: block
+      &[type=text]
+        width: 100%
+        padding: 5px 10px
+        box-sizing: border-box
+        font-size: 1.1em
+      &[type=submit]
+        margin: 10px auto 0 auto
+        padding: 5px 10px

@@ -19,8 +19,7 @@ App.ApplicationView = Backbone.View.extend({
   },
 
   initialize: function() {
-    // this.listenTo(App.data.boards, 'add', this.refreshBoardSelect);
-    // this.listenTo(App.data.boards, 'all', this.refreshBoardSelect);
+    this.listenTo(App.data.boards, 'create', this.refreshBoardSelect);
     this.listenTo(App.data.boards, 'display', this.showBoard);
 
     App.fetchCollections();

@@ -1,9 +1,14 @@
 <header>
   <select class="boards">
+      <option value="#" disabled>Select a board</option>
     {{#each boards}}
       <option value="{{id}}">{{title}}</option>
     {{/each}}
   </select>
+
+  <div class="new-board">
+    <a href="/new">New Board</a>
+  </div>
 
   <div class="app-name"><h1>My Trello</h1></div>
 </header>
