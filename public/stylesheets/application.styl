@@ -211,7 +211,7 @@ h2
     z-index: 2
     position: fixed
   .card-modal,
-  form
+  form.new-board
     background: #ddd
     position: relative
     margin: 0 auto
@@ -225,7 +225,43 @@ h2
     text-align: left
     h2
       color: colors.list.title
-  form
+      padding: 0 0 5px 0
+    section
+      & + section
+        padding-top: 10px
+    .comments
+      .comment-list
+        margin-bottom: 10px
+      .comment
+        & + .comment
+          padding-top: 7px
+      .comment-body
+        background: #eee
+        margin-bottom: 3px
+        padding: 5px
+        border: 1px solid #ccc
+        border-top: none
+        border-radius: 3px
+        color: #777
+      .byline
+        color: #999
+        font-size: .7em
+
+    form.new-comment
+      textarea
+        background: #fff
+        width: 100%
+        padding: 5px
+        border: 1px solid #aaa
+        border-radius: 3px
+        box-sizing: border-box
+        font: inherit
+        color: #666
+      [type=submit]
+        padding: 5px 10px
+        display: block
+
+  form.new-board
     width: 300px
     text-align: center
     h5

@@ -11,6 +11,7 @@ module.exports = function(grunt) {
       all: {
         dest: 'public/javascripts/vendor/all.js',
         dependencies: {
+          'jquery-ui': 'jquery',
           'underscore': 'jquery',
           'backbone': 'underscore',
           'backbone.localstorage': 'backbone'

@@ -50,7 +50,7 @@ App.ListView = Backbone.View.extend({
     var cardIDs = this.model.get('cards');
     _(cardIDs).each(function(id) {
       var card = App.data.cards.get(id);
-      card.trigger('clear');
+      card.clear();
       card.destroy();
     });
   },

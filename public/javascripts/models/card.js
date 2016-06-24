@@ -17,6 +17,9 @@ App.Card = Backbone.Model.extend({
 
     for (var key in arrays) {
       var collection = App.data[key];
+
+      this.set(key, []).save();
+
       _(arrays[key]).each(function(id) {
         collection.get(id).destroy();
       });

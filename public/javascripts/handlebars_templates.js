@@ -29,9 +29,9 @@ this["JST"]["card_modal"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main
 
   return "<div class=\"overlay\"></div><div class=\"card-modal\"><h2>"
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
-    + "</h2><section><h3>Description</h3><p>"
+    + "</h2><section><h3>Description</h3><a href=\"#\" class=\"edit-description\"></a><p>"
     + alias4(((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"description","hash":{},"data":data}) : helper)))
-    + "<p></section><section class=\"comments\"><h2>Comments</h2></section></div>";
+    + "<p></section><section class=\"comments\"><h2>Comments</h2><ul class=\"comment-list\"></ul><form action=\"\" method=\"post\" class=\"new-comment\"><fieldset><textarea name=\"comment-body\" placeholder=\"Add a comment...\"></textarea><input type=\"submit\" value=\"Send\"></fieldset></form></section></div>";
 },"useData":true});
 
 this["JST"]["card"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -40,6 +40,16 @@ this["JST"]["card"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":func
   return "<h3>"
     + container.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"title","hash":{},"data":data}) : helper)))
     + "</h3>";
+},"useData":true});
+
+this["JST"]["comment"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "<p class=\"comment-body\">"
+    + alias4(((helper = (helper = helpers.body || (depth0 != null ? depth0.body : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"body","hash":{},"data":data}) : helper)))
+    + "</p><p class=\"byline\">By "
+    + alias4(((helper = (helper = helpers.author || (depth0 != null ? depth0.author : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"author","hash":{},"data":data}) : helper)))
+    + "</p>";
 },"useData":true});
 
 this["JST"]["list"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -51,5 +61,5 @@ this["JST"]["list"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":func
 },"useData":true});
 
 this["JST"]["new_board"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<div class=\"overlay\"></div><form action=\"\" method=\"\"><fieldset><h5>Create New Board</h5><input type=\"text\" name=\"title\" value=\"New Board\"><input type=\"submit\" value=\"Create\"></fieldset></form>";
+    return "<div class=\"overlay\"></div><form action=\"\" method=\"\" class=\"new-board\"><fieldset><h5>Create New Board</h5><input type=\"text\" name=\"title\" value=\"New Board\"><input type=\"submit\" value=\"Create\"></fieldset></form>";
 },"useData":true});

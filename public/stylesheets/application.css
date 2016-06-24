@@ -313,7 +313,7 @@ h2 {
   position: fixed;
 }
 .modal .card-modal,
-.modal form {
+.modal form.new-board {
   background: #ddd;
   position: relative;
   margin: 0 auto;
@@ -329,26 +329,63 @@ h2 {
 }
 .modal .card-modal h2 {
   color: #4d4d4d;
+  padding: 0 0 5px 0;
 }
-.modal form {
+.modal .card-modal section + section {
+  padding-top: 10px;
+}
+.modal .card-modal .comments .comment-list {
+  margin-bottom: 10px;
+}
+.modal .card-modal .comments .comment + .comment {
+  padding-top: 7px;
+}
+.modal .card-modal .comments .comment-body {
+  background: #eee;
+  margin-bottom: 3px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 3px;
+  color: #777;
+}
+.modal .card-modal .comments .byline {
+  color: #999;
+  font-size: 0.7em;
+}
+.modal .card-modal form.new-comment textarea {
+  background: #fff;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font: inherit;
+  color: #666;
+}
+.modal .card-modal form.new-comment [type=submit] {
+  padding: 5px 10px;
+  display: block;
+}
+.modal form.new-board {
   width: 300px;
   text-align: center;
 }
-.modal form h5 {
+.modal form.new-board h5 {
   font-weight: bold;
   font-size: 1.2em;
   margin-bottom: 10px;
 }
-.modal form input {
+.modal form.new-board input {
   display: block;
 }
-.modal form input[type=text] {
+.modal form.new-board input[type=text] {
   width: 100%;
   padding: 5px 10px;
   box-sizing: border-box;
   font-size: 1.1em;
 }
-.modal form input[type=submit] {
+.modal form.new-board input[type=submit] {
   margin: 10px auto 0 auto;
   padding: 5px 10px;
 }
