@@ -62,6 +62,7 @@ body
   top: 0
   bottom: 0
   height: 100%
+  min-width: 100%
 
 header
   background: colors.header
@@ -219,13 +220,52 @@ h2
     border-radius: 3px
     box-sizing: border-box
     z-index: 3
+    &:after
+      content: " "
+      visibility: hidden
+      display: block
+      height: 0
+      clear: both
   .card-modal
     width: 600px
     color: #666
     text-align: left
     h2
-      color: colors.list.title
       padding: 0 0 5px 0
+      color: colors.list.title
+    h3
+      display: inline-block
+      font-weight: bold
+      color: #777
+    .edit-description-link
+      margin-left: 5px
+      display: inline-block
+      color: #888
+    .description
+      margin-top: 10px
+    .actions
+      float: right
+      height: 100%
+      width: 150px
+      padding-left: 10px
+      padding-right: 5px
+      box-sizing: border-box
+      ul
+        margin: 10px 0 0 0
+      li
+        width: 100%
+        a
+          background: #eee
+          width: 100%
+          padding: 5px
+          border-radius 3px
+          border: 1px solid #ccc
+          border-top: none
+          display: block
+    .main-col
+      float: left
+      width: 420px
+      box-sizing: border-box
     section
       & + section
         padding-top: 10px
@@ -247,7 +287,8 @@ h2
         color: #999
         font-size: .7em
 
-    form.new-comment
+    form.new-comment,
+    form.edit-description
       textarea
         background: #fff
         width: 100%
@@ -259,10 +300,17 @@ h2
         color: #666
       [type=submit]
         padding: 5px 10px
-        display: block
+        display: inline-block
+      a.cancel-edit
+        margin-left: 5px
+        display: inline-block
+    form.edit-description
+      margin-top: 10px
+      display: none
 
   form.new-board
     width: 300px
+    margin: 0 auto
     text-align: center
     h5
       font-weight: bold

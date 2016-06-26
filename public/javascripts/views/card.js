@@ -14,12 +14,13 @@ App.CardView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
-    this.$el.draggable({ containment: 'document' });
+    // this.$el.draggable();
     return this;
   },
 
   initialize: function() {
     this.listenTo(this.model, 'save', this.render);
+    this.listenTo(this.model, 'destroy', this.remove);
     this.render();
   }
 });

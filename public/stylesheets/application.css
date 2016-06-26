@@ -138,6 +138,7 @@ body {
   top: 0;
   bottom: 0;
   height: 100%;
+  min-width: 100%;
 }
 header {
   background: rgba(0,0,0,0.149);
@@ -322,14 +323,63 @@ h2 {
   box-sizing: border-box;
   z-index: 3;
 }
+.modal .card-modal:after,
+.modal form.new-board:after {
+  content: " ";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
 .modal .card-modal {
   width: 600px;
   color: #666;
   text-align: left;
 }
 .modal .card-modal h2 {
-  color: #4d4d4d;
   padding: 0 0 5px 0;
+  color: #4d4d4d;
+}
+.modal .card-modal h3 {
+  display: inline-block;
+  font-weight: bold;
+  color: #777;
+}
+.modal .card-modal .edit-description-link {
+  margin-left: 5px;
+  display: inline-block;
+  color: #888;
+}
+.modal .card-modal .description {
+  margin-top: 10px;
+}
+.modal .card-modal .actions {
+  float: right;
+  height: 100%;
+  width: 150px;
+  padding-left: 10px;
+  padding-right: 5px;
+  box-sizing: border-box;
+}
+.modal .card-modal .actions ul {
+  margin: 10px 0 0 0;
+}
+.modal .card-modal .actions li {
+  width: 100%;
+}
+.modal .card-modal .actions li a {
+  background: #eee;
+  width: 100%;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  border-top: none;
+  display: block;
+}
+.modal .card-modal .main-col {
+  float: left;
+  width: 420px;
+  box-sizing: border-box;
 }
 .modal .card-modal section + section {
   padding-top: 10px;
@@ -353,7 +403,8 @@ h2 {
   color: #999;
   font-size: 0.7em;
 }
-.modal .card-modal form.new-comment textarea {
+.modal .card-modal form.new-comment textarea,
+.modal .card-modal form.edit-description textarea {
   background: #fff;
   width: 100%;
   padding: 5px;
@@ -363,12 +414,23 @@ h2 {
   font: inherit;
   color: #666;
 }
-.modal .card-modal form.new-comment [type=submit] {
+.modal .card-modal form.new-comment [type=submit],
+.modal .card-modal form.edit-description [type=submit] {
   padding: 5px 10px;
-  display: block;
+  display: inline-block;
+}
+.modal .card-modal form.new-comment a.cancel-edit,
+.modal .card-modal form.edit-description a.cancel-edit {
+  margin-left: 5px;
+  display: inline-block;
+}
+.modal .card-modal form.edit-description {
+  margin-top: 10px;
+  display: none;
 }
 .modal form.new-board {
   width: 300px;
+  margin: 0 auto;
   text-align: center;
 }
 .modal form.new-board h5 {
