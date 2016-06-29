@@ -80,6 +80,14 @@ App.ListView = Backbone.View.extend({
     this.$el.find('.cards').append(view.el);
   },
 
+  moveCard: function(event, ui) {
+    var cardID = ui.draggable.data('id');
+    var card = App.data.cards.get(cardID);
+
+    card.removeFromList();
+    this.model.save({ cards: this.model.get('cards').concat([cardID]) });
+  },
+
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
     this.$el.appendTo('ul#lists');
@@ -89,6 +97,15 @@ App.ListView = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.model, 'destroy', this.remove);
     this.listenTo(this.model, 'save', this.render);
+
+    this.$el.attr('data-id', this.model.get('id'));
+
+    this.$el.droppable({
+      accept: 'li.card',
+      hoverClass: 'hovered',
+      drop: this.moveCard.bind(this)
+    });
+
     this.render();
   }
 });

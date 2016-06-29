@@ -15,7 +15,6 @@ App.CardModalView = Backbone.View.extend({
     e.preventDefault();
     this.model.clear();
     this.model.destroy();
-    this.remove();
   },
 
   showDescriptionEdit: function(e) {
@@ -84,6 +83,7 @@ App.CardModalView = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.model, 'change:description', this.render);
+    this.listenTo(this.model, 'destroy', this.remove);
     this.render();
   }
 });

@@ -8,19 +8,35 @@ App.CardView = Backbone.View.extend({
 
   showModal: function(e) {
     e.preventDefault();
-    var modal_view = new App.CardModalView({ model: this.model });
-    modal_view.$el.appendTo('#my-trello');
+
+    if (this.$el.hasClass('noclick')) {
+      this.$el.removeClass('noclick');
+    }
+    else {
+      var modal_view = new App.CardModalView({ model: this.model });
+      modal_view.$el.appendTo('#my-trello');
+    }
   },
 
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
-    // this.$el.draggable();
     return this;
   },
 
   initialize: function() {
     this.listenTo(this.model, 'save', this.render);
     this.listenTo(this.model, 'destroy', this.remove);
+
+    this.$el.attr('data-id', this.model.get('id'));
+
+    this.$el.draggable({
+      stack: 'body',
+      revert: true,
+      start: function(event, ui) {
+        $(this).addClass('noclick');
+      }
+    });
+
     this.render();
   }
 });

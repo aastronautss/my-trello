@@ -254,6 +254,9 @@ h2 {
 .new-list form .new-card-form form a {
   margin-left: 5px;
 }
+.hovered {
+  background: #ccc;
+}
 .new-list {
   background: rgba(0,0,0,0.12);
   margin-left: 10px;
@@ -263,6 +266,11 @@ h2 {
 }
 .new-list:hover {
   background: rgba(0,0,0,0.3);
+}
+.new-list .cancel-new-list {
+  color: #666;
+  margin-left: 5px;
+  display: inline-block;
 }
 .new-list form {
   top: 0;
@@ -298,10 +306,9 @@ h2 {
   cursor: pointer;
 }
 .modal {
-  position: absolute;
+  position: relative;
   top: 20%;
-  left: 0;
-  right: 0;
+  width: 100%;
   text-align: center;
 }
 .modal .overlay {
@@ -430,7 +437,6 @@ h2 {
 }
 .modal form.new-board {
   width: 300px;
-  margin: 0 auto;
   text-align: center;
 }
 .modal form.new-board h5 {

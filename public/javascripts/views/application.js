@@ -14,8 +14,6 @@ App.ApplicationView = Backbone.View.extend({
     this.$el.html(this.template({
       boards: App.data.boards.toJSON()
     }));
-
-    $('select.boards').trigger('change');
   },
 
   initialize: function() {

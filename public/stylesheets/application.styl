@@ -160,6 +160,9 @@ h2
       a
         margin-left: 5px
 
+.hovered
+  background: #ccc
+
 .new-list
   background: colors.list.new-bg
   margin-left: 10px
@@ -168,6 +171,10 @@ h2
   color: colors.list.new-bg-text
   &:hover
     background: colors.list.new-bg-hover
+  .cancel-new-list
+    color: #666
+    margin-left: 5px
+    display: inline-block
   form
     top: 0
     left: 0
@@ -198,10 +205,9 @@ h2
     cursor: pointer
 
 .modal
-  position: absolute
+  position: relative
   top: 20%
-  left: 0
-  right: 0
+  width: 100%
   text-align: center
   .overlay
     background: rgba(0, 0, 0, .4)
@@ -310,7 +316,6 @@ h2
 
   form.new-board
     width: 300px
-    margin: 0 auto
     text-align: center
     h5
       font-weight: bold

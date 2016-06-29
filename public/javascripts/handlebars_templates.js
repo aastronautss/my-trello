@@ -11,7 +11,7 @@ this["JST"]["application"] = Handlebars.template({"1":function(container,depth0,
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<header><select class=\"boards\"><option value=\"#\" disabled>Select a board</option>"
+  return "<header><select class=\"boards\"><option value=\"#\">Select a board</option>"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.boards : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "</select><div class=\"new-board\"><a href=\"/new\">New Board</a></div><div class=\"app-name\"><h1>My Trello</h1></div></header><main></main>";
 },"useData":true});
@@ -29,7 +29,7 @@ this["JST"]["card_modal"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main
 
   return "<div class=\"overlay\"></div><div class=\"card-modal\"><h2>"
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
-    + "</h2><aside class=\"actions\"><h3>Actions</h3><ul class=\"actions\"><li><a href=\"#\" class=\"delete-card\">Delete</a></li></ul></aside><div class=\"main-col\"><section><h3>Description</h3><a href=\"#\" class=\"edit-description-link\">Edit</a><p class=\"description\">"
+    + "</h2><aside class=\"actions\"><h3>Actions</h3><ul><li><a href=\"#\" class=\"delete-card\">Delete</a></li></ul></aside><div class=\"main-col\"><section><h3>Description</h3><a href=\"#\" class=\"edit-description-link\">Edit</a><p class=\"description\">"
     + alias4(((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"description","hash":{},"data":data}) : helper)))
     + "<p><form action=\"\" method=\"post\" class=\"edit-description\"><fieldset><textarea></textarea><input type=\"submit\" value=\"Save\"><a href=\"#\" class=\"cancel-edit\">Cancel</a></fieldset></form></section><section class=\"comments\"><h2>Comments</h2><ul class=\"comment-list\"></ul><form action=\"\" method=\"post\" class=\"new-comment\"><fieldset><textarea name=\"comment-body\" placeholder=\"Add a comment...\"></textarea><input type=\"submit\" value=\"Send\"></fieldset></form></section></div></div>";
 },"useData":true});
