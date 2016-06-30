@@ -9,7 +9,8 @@ var TrelloRouter = Backbone.Router.extend({
   },
 
   showBoard: function(boardID) {
-    App.data.boards.trigger('display', boardID);
+    App.current_board = boardID;
+    App.data.boards.trigger('display');
   },
 
   initialize: function() {
@@ -18,7 +19,7 @@ var TrelloRouter = Backbone.Router.extend({
 });
 
 App.router = new TrelloRouter();
-Backbone.history.start({ pushState: true });
+Backbone.history.start();
 
 $(document).on('change', 'select.boards', function(e) {
   e.preventDefault();

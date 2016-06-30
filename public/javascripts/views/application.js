@@ -6,8 +6,9 @@ App.ApplicationView = Backbone.View.extend({
     this.render();
   },
 
-  showBoard: function(boardID) {
-    new App.BoardView({ model: App.data.boards.get(boardID) });
+  showBoard: function() {
+    var current_board = App.current_board;
+    new App.BoardView({ model: App.data.boards.get(current_board) });
   },
 
   render: function() {

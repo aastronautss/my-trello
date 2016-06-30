@@ -156,9 +156,17 @@ header {
   font: inherit;
   color: inherit;
 }
-.new-board {
+.new-board-link {
   float: right;
   width: 100px;
+}
+.new-board-link a {
+  background: rgba(200,200,200,0.8);
+  display: block;
+  top: 5px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  color: rgba(255,255,255,0.8);
 }
 h1 {
   text-align: center;

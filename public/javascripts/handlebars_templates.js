@@ -13,7 +13,7 @@ this["JST"]["application"] = Handlebars.template({"1":function(container,depth0,
 
   return "<header><select class=\"boards\"><option value=\"#\">Select a board</option>"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.boards : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "</select><div class=\"new-board\"><a href=\"/new\">New Board</a></div><div class=\"app-name\"><h1>My Trello</h1></div></header><main></main>";
+    + "</select><div class=\"new-board-link\"><a href=\"/new\">New Board</a></div><div class=\"app-name\"><a href=\"/\"><h1>My Trello</h1></a></div></header><main></main>";
 },"useData":true});
 
 this["JST"]["board"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
