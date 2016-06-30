@@ -16,10 +16,10 @@ App.NewBoardView = Backbone.View.extend({
   createBoard: function(e) {
     e.preventDefault();
     var title = $(e.currentTarget).find('[type=text]').val();
-    var new_board = App.data.boards.create({ title: title });
+    var new_board = App.data.boards.create({ title: title }, { wait: true });
     this.remove();
-    App.router.navigate('/');
-    window.location.reload(true);
+    // App.router.navigate('/');
+    // window.location.reload(true);
   },
 
   render: function() {

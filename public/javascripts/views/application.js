@@ -2,8 +2,12 @@ App.ApplicationView = Backbone.View.extend({
   el: '#my-trello',
   template: App.templates.application,
 
-  refreshBoardSelect: function() {
+  displayNewBoard: function(model) {
+    var id = model.id;
     this.render();
+    this.$el.find('.boards > option[value="' + id + '"]')
+            .prop('selected', true)
+            .change();
   },
 
   showBoard: function() {
@@ -18,10 +22,11 @@ App.ApplicationView = Backbone.View.extend({
   },
 
   initialize: function() {
-    this.listenTo(App.data.boards, 'create', this.refreshBoardSelect);
+    App.fetchCollections();
+
+    this.listenTo(App.data.boards, 'add', this.displayNewBoard);
     this.listenTo(App.data.boards, 'display', this.showBoard);
 
-    App.fetchCollections();
     this.render();
   }
 });
